@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Headers;
+using System.Text.Json;
 
 using HttpClient client = new();
 client.DefaultRequestHeaders.Accept.Clear();
@@ -10,8 +11,10 @@ await ProcessReleasesAsync(client);
 
 static async Task ProcessReleasesAsync(HttpClient client)
 {
-     var json = await client.GetStringAsync(
-         "https://api.github.com/repos/twbs/bootstrap/releases");
-
-     Console.Write(json);
+await using Stream stream =
+    await client.GetStreamAsync("https://api.github.com/orgs/dotnet/repos");
+var repositories =
+    await JsonSerializer.DeserializeAsync<List<Release>>(stream);
 }
+
+//         "https://api.github.com/repos/twbs/bootstrap/releases");
