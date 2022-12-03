@@ -29,5 +29,3 @@ var releases =
 }
 
 //         "https://api.github.com/repos/twbs/bootstrap/releases");
-//  foreach (var release in releases ?? Enumerable.Empty<Release>())
-//    Console.Write(release.Name);
