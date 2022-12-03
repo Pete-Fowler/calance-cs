@@ -18,9 +18,7 @@ foreach (var release in releases ?? Enumerable.Empty<Release>())
     );
 }
 
-// const csv = data.map((row) => row.join(",")).join("\n");
-
-data.ForEach(i => Console.WriteLine(i));
+File.WriteAllLines("BootstrapReleases.csv", data.Select(x => string.Join(",", x)));
 
 static async Task<List<Release>> ProcessReleasesAsync(HttpClient client)
 {
