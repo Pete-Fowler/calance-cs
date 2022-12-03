@@ -9,11 +9,21 @@ client.DefaultRequestHeaders.Add("User-Agent", "Bootstrap release to csv script"
 
 var releases = await ProcessReleasesAsync(client);
 
+List<string?> data = new List<string?>();
+
 foreach (var release in releases ?? Enumerable.Empty<Release>())
 {
-  Console.WriteLine(release.created_at);
-  Console.WriteLine(release.tag_name);
-  Console.WriteLine(release.assets?[0].browser_download_url);
+  data.Add(release.created_at?.Substring(0, 10));
+  data.Add(release.tag_name);
+  data.Add(release.assets?[0].browser_download_url);
+  // Console.WriteLine(release.created_at);
+  // Console.WriteLine(release.tag_name);
+  // Console.WriteLine(release.assets?[0].browser_download_url);
+}
+foreach (string? s in data)
+{
+  Console.WriteLine(s);
+
 }
 
 static async Task<List<Release>> ProcessReleasesAsync(HttpClient client)

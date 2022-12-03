@@ -13,5 +13,5 @@ public class Release
 {
   public List<Asset>? assets { get; set; }
   public string? tag_name { get; set; }
-  public DateTime created_at { get; set; }
+  public string? created_at { get; set; }
 }
