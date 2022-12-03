@@ -10,10 +10,9 @@ client.DefaultRequestHeaders.Add("User-Agent", "Bootstrap release to csv script"
 var releases = await ProcessReleasesAsync(client);
 
 foreach (var release in releases ?? Enumerable.Empty<Release>()) {
-  Console.WriteLine(release.Date);
-  Console.WriteLine(release.Name);
-  Console.WriteLine(release.Download_Url);
-
+  Console.WriteLine(release.created_at);
+  Console.WriteLine(release.tag_name);
+  Console.WriteLine(release.assets?[0].browser_download_url);
 }
 
 

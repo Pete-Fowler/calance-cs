@@ -1,28 +1,17 @@
 using System.Text.Json.Serialization;
+  public class Asset
+    {
+        public string? browser_download_url { get; set; }
+    }
 
-public record class Release(
-  [property: JsonPropertyName("created_at")] DateTime Date,
-  [property: JsonPropertyName("tag_name")] string Name,
-  [property: JsonPropertyName("browser_download_url")] string Download_Url
-  );
-
-
-
-/*
-[
+  public class Author
   {
-    created_at:
-    tag_name:
-    assets: [
-      {
-        browser_download_url
-        // dist
-      },
-      {
-        // examples
-      }
-    ]
+      public string? login { get; set; }
   }
-]
 
-*/
+  public class Release
+  {
+      public List<Asset>? assets { get; set; }
+      public string? tag_name { get; set; }
+      public DateTime created_at { get; set; }
+  }
