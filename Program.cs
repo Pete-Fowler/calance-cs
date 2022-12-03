@@ -20,11 +20,7 @@ foreach (var release in releases ?? Enumerable.Empty<Release>())
   // Console.WriteLine(release.tag_name);
   // Console.WriteLine(release.assets?[0].browser_download_url);
 }
-foreach (string? s in data)
-{
-  Console.WriteLine(s);
-
-}
+data.ForEach(i => Console.WriteLine(i));
 
 static async Task<List<Release>> ProcessReleasesAsync(HttpClient client)
 {
