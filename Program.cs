@@ -27,5 +27,3 @@ var releases =
     return releases ?? new();
    
 }
-
-//         "https://api.github.com/repos/twbs/bootstrap/releases");
