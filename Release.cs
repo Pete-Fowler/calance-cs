@@ -8,3 +8,21 @@ public record class Release(
 
 
 
+/*
+[
+  {
+    created_at:
+    tag_name:
+    assets: [
+      {
+        browser_download_url
+        // dist
+      },
+      {
+        // examples
+      }
+    ]
+  }
+]
+
+*/
