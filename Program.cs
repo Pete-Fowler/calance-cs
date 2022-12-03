@@ -16,9 +16,6 @@ foreach (var release in releases ?? Enumerable.Empty<Release>())
   data.Add(release.created_at?.Substring(0, 10));
   data.Add(release.tag_name);
   data.Add(release.assets?[0].browser_download_url);
-  // Console.WriteLine(release.created_at);
-  // Console.WriteLine(release.tag_name);
-  // Console.WriteLine(release.assets?[0].browser_download_url);
 }
 data.ForEach(i => Console.WriteLine(i));
 
