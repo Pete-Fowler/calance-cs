@@ -9,13 +9,19 @@ client.DefaultRequestHeaders.Add("User-Agent", "Bootstrap release to csv script"
 
 var releases = await ProcessReleasesAsync(client);
 
-foreach (var release in releases ?? Enumerable.Empty<Release>())
-   Console.Write(release.Name);
+foreach (var release in releases ?? Enumerable.Empty<Release>()) {
+  Console.WriteLine(release.Date);
+  Console.WriteLine(release.Name);
+  Console.WriteLine(release.Download_Url);
+
+}
+
 
 static async Task<List<Release>> ProcessReleasesAsync(HttpClient client)
 {
 await using Stream stream =
     await client.GetStreamAsync("https://api.github.com/repos/twbs/bootstrap/releases");
+
 var releases =
     await JsonSerializer.DeserializeAsync<List<Release>>(stream);
     return releases ?? new();
